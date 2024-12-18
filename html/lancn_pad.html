@@ -38,7 +38,6 @@
             display: flex;
             justify-content: center;
         }
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -47,45 +46,53 @@
             max-width: 1200px;
             padding: 20px;
         }
-
+        
         nav p {
             font-size: 36px;
             font-weight: bold;
             color: #e59708;
         }
-
+        
         nav ul {
             display: flex;
             gap: 30px;
             list-style: none;
+            padding: 0; /* Ensures no unwanted padding in the ul */
+            margin: 0; /* Ensures no unwanted margin in the ul */
         }
-
+        
+        nav ul li {
+            position: relative; /* Make li the parent for its pseudo-element */
+        }
+        
         nav ul li a {
             text-decoration: none;
             color: white;
             font-size: 18px;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
-
+        
         nav ul li a:hover {
             color: #e59708;
+            padding: 15px;
         }
-
+        
         nav ul li::before {
             content: "";
             position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #e59708;
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
+            bottom: 0; /* Positions the pseudo-element at the bottom of li */
+            left: 50%; /* Starts at the center */
+            width: 0; /* Initial width is zero */
+            height: 2px; /* Line height */
+            background: #e59708; /* Line color */
+            transform: translateX(-50%); /* Centers the line */
+            transition: all 0.6s ease; /* Smooth transition for hover */
         }
-
+        
         nav ul li:hover::before {
-            width: 100%;
+            width: 100%; /* Expands the line to full width */
         }
+        
 
         main {
             margin-top: 120px;
@@ -126,7 +133,7 @@
 
         main button:hover {
             background-color: #ffd700;
-            transform: scale(1.1);
+    
         }
 
         @media (max-width: 768px) {
